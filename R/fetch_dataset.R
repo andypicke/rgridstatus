@@ -27,6 +27,13 @@ fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
 
   df <- resp_parsed$data
 
+  # convert datetime column format
+  df$interval_start_utc <- lubridate::as_datetime(df$interval_start_utc)
+  # display in local timezone
+  df$datetime_local <- lubridate::with_tz(df$interval_start_utc, tzone = "US/Pacific" )
+
+  df <- df |> dplyr::select(-c('interval_end_utc'))
+
   return(df)
 
 }
