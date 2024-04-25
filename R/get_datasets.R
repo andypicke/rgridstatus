@@ -1,3 +1,13 @@
+#' Get info on all available datasets
+#'
+#' @param api_key API key; defaults to key saved in renviron file
+#' @returns Dataframe of available datasets and info
+#'
+#' @export
+#' @examples
+#' info <- get_datasets()
+#'
+
 
 get_datasets <- function(api_key = Sys.getenv("GRIDSTATUS_API_KEY")){
 
