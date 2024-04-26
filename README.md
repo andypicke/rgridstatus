@@ -4,6 +4,8 @@
 # rgridstatus
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of rgridstatus is to provide a R API wrapper for the
@@ -53,8 +55,8 @@ head(info)
 #> 1 2019-06-11T03:25:00+00:00 2024-04-05T15:00:00+00:00
 #> 2 2019-04-05T15:20:00+00:00 2024-04-01T06:05:00+00:00
 #> 3 2020-01-01T08:00:00+00:00 2024-04-27T06:00:00+00:00
-#> 4 2010-01-01T08:00:00+00:00 2024-04-26T23:00:00+00:00
-#> 5 2021-06-18T07:00:00+00:00 2024-04-25T07:00:00+00:00
+#> 4 2010-01-01T08:00:00+00:00 2024-04-27T06:00:00+00:00
+#> 5 2021-06-18T07:00:00+00:00 2024-04-26T07:00:00+00:00
 #> 6 2016-06-30T07:00:00+00:00 2024-04-25T01:00:00+00:00
 #>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              dataset_metadata.available_cols
 #> 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   rank, iso, interval_start_utc, date, record_type, metric_name, metric_value, BIGINT, TEXT, TIMESTAMP, DATE, TEXT, TEXT, DOUBLE PRECISION
@@ -64,12 +66,12 @@ head(info)
 #> 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     publish_time_utc, outage_mrid, resource_name, resource_id, outage_type, nature_of_work, curtailment_start_time, curtailment_end_time, curtailment_mw, resource_pmax_mw, net_qualifying_capacity_mw, TIMESTAMP, INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, DOUBLE PRECISION, DOUBLE PRECISION, DOUBLE PRECISION
 #> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  interval_start_utc, interval_end_utc, curtailment_type, curtailment_reason, fuel_type, curtailment_mwh, curtailment_mw, TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, INTEGER
 #>   dataset_metadata.num_rows     source         last_checked_time
-#> 1                       530 gridstatus 2024-04-25T23:11:00+00:00
-#> 2                      1190 gridstatus 2024-04-25T23:11:00+00:00
-#> 3                    217728      caiso 2024-04-25T18:58:13+00:00
-#> 4                    593101      caiso 2024-04-25T23:11:21+00:00
-#> 5                   1896127      caiso 2024-04-25T15:30:28+00:00
-#> 6                     61672      caiso 2024-04-25T17:01:37+00:00
+#> 1                       530 gridstatus 2024-04-26T15:35:56+00:00
+#> 2                      1190 gridstatus 2024-04-26T15:35:56+00:00
+#> 3                    217728      caiso 2024-04-26T15:36:55+00:00
+#> 4                    593101      caiso 2024-04-26T15:37:00+00:00
+#> 5                   1896127      caiso 2024-04-26T15:30:15+00:00
+#> 6                     61672      caiso 2024-04-26T15:37:05+00:00
 #>                                                         index_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
