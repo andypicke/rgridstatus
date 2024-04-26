@@ -1,15 +1,15 @@
 #' Download dataset from API
 #' @param wh_dataset Name of dataset to download
-#' @param start_time Start time
-#' @param end_time End time
-#' @param api_key API key
+#' @param start_time Start time. Default is 5 days ago.
+#' @param end_time End time. Default is today's date.
+#' @param api_key API key. Default is "GRIDSTATUS_API_KEY" stored in .Renviron file
 #' @param tz_local Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()
 #' @returns df: Dataframe fo requested dataset
 #' @export
 
 fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
-                       start_time = "2024-04-06",
-                       end_time = "2024-04-11",
+                       start_time = Sys.Date() - 5,
+                       end_time = Sys.Date(),
                        api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
                        tz_local = "US/Pacific"
                        ) {

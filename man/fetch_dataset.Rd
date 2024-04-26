@@ -6,8 +6,8 @@
 \usage{
 fetch_dataset(
   wh_dataset = "caiso_fuel_mix",
-  start_time = "2024-04-06",
-  end_time = "2024-04-11",
+  start_time = Sys.Date() - 5,
+  end_time = Sys.Date(),
   api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
   tz_local = "US/Pacific"
 )
@@ -15,11 +15,11 @@ fetch_dataset(
 \arguments{
 \item{wh_dataset}{Name of dataset to download}
 
-\item{start_time}{Start time}
+\item{start_time}{Start time. Default is 5 days ago.}
 
-\item{end_time}{End time}
+\item{end_time}{End time. Default is today's date.}
 
-\item{api_key}{API key}
+\item{api_key}{API key. Default is "GRIDSTATUS_API_KEY" stored in .Renviron file}
 
 \item{tz_local}{Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()}
 }
