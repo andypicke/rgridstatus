@@ -8,7 +8,8 @@ fetch_dataset(
   wh_dataset = "caiso_fuel_mix",
   start_time = "2024-04-06",
   end_time = "2024-04-11",
-  api_key = Sys.getenv("GRIDSTATUS_API_KEY")
+  api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
+  tz_local = "US/Pacific"
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ fetch_dataset(
 \item{end_time}{End time}
 
 \item{api_key}{API key}
+
+\item{tz_local}{Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()}
 }
 \value{
 df: Dataframe fo requested dataset

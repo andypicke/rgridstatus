@@ -3,13 +3,16 @@
 #' @param start_time Start time
 #' @param end_time End time
 #' @param api_key API key
+#' @param tz_local Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()
 #' @returns df: Dataframe fo requested dataset
 #' @export
 
 fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
                        start_time = "2024-04-06",
                        end_time = "2024-04-11",
-                       api_key = Sys.getenv("GRIDSTATUS_API_KEY")) {
+                       api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
+                       tz_local = "US/Pacific"
+                       ) {
 
 
   # base url for the Gridstatusio API
@@ -30,7 +33,7 @@ fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
   # convert datetime column format
   df$interval_start_utc <- lubridate::as_datetime(df$interval_start_utc)
   # display in local timezone
-  df$datetime_local <- lubridate::with_tz(df$interval_start_utc, tzone = "US/Pacific" )
+  df$datetime_local <- lubridate::with_tz(df$interval_start_utc, tzone = tz_local )
 
   df <- df |> dplyr::select(-c('interval_end_utc'))
 
