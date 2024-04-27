@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of rgridstatus is to provide a R API wrapper for the GridStatusIO API
+The goal of rgridstatus is to provide a R API wrapper for the [GridStatusIO](https://www.gridstatus.io/home) [API](https://www.gridstatus.io/api).
 
 ## Installation
 
@@ -30,12 +30,34 @@ You can install the development version of rgridstatus from [GitHub](https://git
 devtools::install_github("andypicke/rgridstatus")
 ```
 
-## Example
+You will need to register for an API key. By default, all functions assume you have stored your API key in your *.Renviron* file with the name *GRIDSTATUS_API_KEY*.
 
-Get info on available datasets:
+## Examples
+
+### Get info on available datasets:
 
 ```{r example}
 library(rgridstatus)
 info <- get_datasets()
 head(info)
 ```
+
+### Get list of dataset updates
+
+```{r}
+
+updates <- get_dataset_updates()
+head(updates)
+
+```
+
+### Download a dataset
+
+```{r}
+
+df <- fetch_dataset("caiso_fuel_mix")
+
+head(df)
+
+```
+
