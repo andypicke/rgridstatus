@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of rgridstatus is to provide a R API wrapper for the
@@ -59,10 +61,10 @@ head(info)
 #>     earliest_available_time     latest_available_time
 #> 1 2019-06-11T03:25:00+00:00 2024-04-05T15:00:00+00:00
 #> 2 2019-04-05T15:20:00+00:00 2024-04-01T06:05:00+00:00
-#> 3 2020-01-01T08:00:00+00:00 2024-04-29T06:00:00+00:00
-#> 4 2010-01-01T08:00:00+00:00 2024-04-28T18:00:00+00:00
-#> 5 2021-06-18T07:00:00+00:00 2024-04-27T07:00:00+00:00
-#> 6 2016-06-30T07:00:00+00:00 2024-04-27T01:00:00+00:00
+#> 3 2020-01-01T08:00:00+00:00 2024-04-30T06:00:00+00:00
+#> 4 2010-01-01T08:00:00+00:00 2024-04-30T06:00:00+00:00
+#> 5 2021-06-18T07:00:00+00:00 2024-04-29T07:00:00+00:00
+#> 6 2016-06-30T07:00:00+00:00 2024-04-28T01:00:00+00:00
 #>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              dataset_metadata.available_cols
 #> 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   rank, iso, interval_start_utc, date, record_type, metric_name, metric_value, BIGINT, TEXT, TIMESTAMP, DATE, TEXT, TEXT, DOUBLE PRECISION
 #> 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 iso, interval_start_utc, date, record_type, metric_name, metric_value, TEXT, TIMESTAMP, DATE, TEXT, TEXT, DOUBLE PRECISION
@@ -71,12 +73,12 @@ head(info)
 #> 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     publish_time_utc, outage_mrid, resource_name, resource_id, outage_type, nature_of_work, curtailment_start_time, curtailment_end_time, curtailment_mw, resource_pmax_mw, net_qualifying_capacity_mw, TIMESTAMP, INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, DOUBLE PRECISION, DOUBLE PRECISION, DOUBLE PRECISION
 #> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  interval_start_utc, interval_end_utc, curtailment_type, curtailment_reason, fuel_type, curtailment_mwh, curtailment_mw, TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, INTEGER
 #>   dataset_metadata.num_rows     source         last_checked_time
-#> 1                       530 gridstatus 2024-04-27T18:50:59+00:00
-#> 2                      1190 gridstatus 2024-04-27T18:50:59+00:00
-#> 3                    217728      caiso 2024-04-27T18:48:46+00:00
-#> 4                    593101      caiso 2024-04-27T18:51:37+00:00
-#> 5                   1896127      caiso 2024-04-27T15:29:40+00:00
-#> 6                     61672      caiso 2024-04-27T17:02:03+00:00
+#> 1                       530 gridstatus 2024-04-29T16:26:01+00:00
+#> 2                      1190 gridstatus 2024-04-29T16:26:01+00:00
+#> 3                    217728      caiso 2024-04-29T16:29:43+00:00
+#> 4                    593101      caiso 2024-04-29T16:29:49+00:00
+#> 5                   1896127      caiso 2024-04-29T15:30:50+00:00
+#> 6                     61672      caiso 2024-04-29T16:29:54+00:00
 #>                                                         index_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
@@ -100,20 +102,13 @@ head(info)
 updates <- get_dataset_updates()
 #> No encoding supplied: defaulting to UTF-8.
 head(updates)
-#>        id                           dataset                  time_utc
-#> 1 7838207                        nyiso_load 2024-04-27T18:53:05+00:00
-#> 2 7838206        ercot_real_time_as_monitor 2024-04-27T18:53:05+00:00
-#> 3 7838205                    nyiso_load_raw 2024-04-27T18:53:05+00:00
-#> 4 7838203 ercot_real_time_system_conditions 2024-04-27T18:53:02+00:00
-#> 5 7838204         nyiso_lmp_real_time_5_min 2024-04-27T18:53:01+00:00
-#> 6 7838202 ercot_real_time_system_conditions 2024-04-27T18:52:55+00:00
-#>   num_rows_updated
-#> 1                1
-#> 2                1
-#> 3                2
-#> 4                1
-#> 5               30
-#> 6                1
+#>   id                  dataset                  time_utc num_rows_updated
+#> 1  1  pjm_lmp_real_time_5_min 2023-04-19T22:10:19+00:00               34
+#> 2  2 miso_lmp_real_time_5_min 2023-04-19T22:10:41+00:00              345
+#> 3  3                miso_load 2023-04-19T22:11:46+00:00                1
+#> 4  4            miso_fuel_mix 2023-04-19T22:11:54+00:00                1
+#> 5  5           caiso_fuel_mix 2023-04-19T22:11:55+00:00                4
+#> 6  6               caiso_load 2023-04-19T22:11:56+00:00                1
 ```
 
 ### Download a dataset
@@ -125,17 +120,17 @@ df <- fetch_dataset("caiso_fuel_mix")
 
 head(df)
 #>    interval_start_utc solar wind geothermal biomass biogas small_hydro coal
-#> 1 2024-04-22 00:00:00 15153  725        782     118    172         260    0
-#> 2 2024-04-22 00:05:00 15051  769        783     119    172         263    0
-#> 3 2024-04-22 00:10:00 14680  784        784     119    172         269    0
-#> 4 2024-04-22 00:15:00 14385  778        784     120    172         275    0
-#> 5 2024-04-22 00:20:00 14121  791        784     120    172         281    0
-#> 6 2024-04-22 00:25:00 13837  796        783     120    172         281    0
+#> 1 2024-04-24 00:00:00 15268 4207        767      90    144         259    0
+#> 2 2024-04-24 00:05:00 15106 4169        766      86    146         261    0
+#> 3 2024-04-24 00:10:00 15014 4124        766      87    148         264    0
+#> 4 2024-04-24 00:15:00 14949 4094        766      86    148         265    0
+#> 5 2024-04-24 00:20:00 14824 4174        765      83    148         267    0
+#> 6 2024-04-24 00:25:00 14552 4263        765      84    148         266    0
 #>   nuclear natural_gas large_hydro batteries imports other      datetime_local
-#> 1    1142        2423        1414       701   -2860     0 2024-04-21 17:00:00
-#> 2    1142        2489        1815         4   -2384     0 2024-04-21 17:05:00
-#> 3    1141        2503        1899      -224   -1725     0 2024-04-21 17:10:00
-#> 4    1142        2509        1906       -52   -1385     0 2024-04-21 17:15:00
-#> 5    1142        2586        2183       148   -1468     0 2024-04-21 17:20:00
-#> 6    1142        2680        2187       571   -1481     0 2024-04-21 17:25:00
+#> 1    1136        2567        1900     -1080   -3990     0 2024-04-23 17:00:00
+#> 2    1135        2837        2052     -1235   -4014     0 2024-04-23 17:05:00
+#> 3    1136        3024        2141     -1288   -3916     0 2024-04-23 17:10:00
+#> 4    1135        3139        2207     -1171   -3873     0 2024-04-23 17:15:00
+#> 5    1136        3172        2470      -715   -4417     0 2024-04-23 17:20:00
+#> 6    1135        3271        2505      -352   -4606     0 2024-04-23 17:25:00
 ```
