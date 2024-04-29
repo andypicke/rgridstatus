@@ -17,3 +17,6 @@ Imports:
     lubridate
 URL: https://github.com/andypicke/rgridstatus
 BugReports: https://github.com/andypicke/rgridstatus/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
