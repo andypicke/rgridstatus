@@ -13,7 +13,7 @@ fetch_dataset(
 )
 }
 \arguments{
-\item{wh_dataset}{Name of dataset to download}
+\item{wh_dataset}{Name of dataset to download. Default is "caiso_fuel_mix"}
 
 \item{start_time}{Start time. Default is 5 days ago.}
 
@@ -24,7 +24,7 @@ fetch_dataset(
 \item{tz_local}{Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()}
 }
 \value{
-df: Dataframe fo requested dataset
+df: Dataframe of requested dataset
 }
 \description{
 Download dataset from API
