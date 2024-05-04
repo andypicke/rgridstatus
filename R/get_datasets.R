@@ -1,4 +1,4 @@
-#' Get info on all available datasets
+#' Get info on all available Gridstatus datasets
 #'
 #' @param api_key API key; defaults to key saved in renviron file
 #' @returns Dataframe of available datasets and info
@@ -19,11 +19,8 @@ get_datasets <- function(api_key = Sys.getenv("GRIDSTATUS_API_KEY")){
   resp <- httr::GET(req_url, httr::add_headers('x-api-key' = api_key))
 
   resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = 'text'))
-  #names(resp_parsed)
 
   df <- resp_parsed$data
-  #glimpse(df)
-  #View(df)
 
   return(df)
 
