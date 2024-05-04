@@ -15,7 +15,3 @@ df: Dataframe of available datasets and info
 \description{
 Get info on all available Gridstatus datasets
 }
-\examples{
-info <- get_available_datasets()
-
-}
