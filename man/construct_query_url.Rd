@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct_query_url.R
 \name{construct_query_url}
 \alias{construct_query_url}
-\title{Build url for API request}
+\title{Build URL for API data request}
 \usage{
 construct_query_url(
   wh_dataset = "caiso_fuel_mix",
@@ -18,8 +18,16 @@ construct_query_url(
 \item{end_time}{End time. Default is today's date.}
 }
 \value{
-url
+req_url URL for API request with specified parameters
 }
 \description{
-Build url for API request
+Build URL for API data request
+}
+\examples{
+req_url <- construct_query_url("caiso_fuel_mix", "2024-04-1", "2024-04-10")
+
+
+}
+\seealso{
+\code{\link[=get_available_datasets]{get_available_datasets()}}
 }

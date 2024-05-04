@@ -2,14 +2,13 @@
 #'
 #' @param api_key API key; defaults to key saved in renviron file
 #' @returns Dataframe of available datasets and info
-#'
 #' @export
 #' @examples
-#' info <- get_datasets()
+#' info <- get_available_datasets()
 #'
 
 
-get_datasets <- function(api_key = Sys.getenv("GRIDSTATUS_API_KEY")){
+get_available_datasets <- function(api_key = Sys.getenv("GRIDSTATUS_API_KEY")){
 
   # base url for the Gridstatusio API
   base_url <- "https://api.gridstatus.io/v1/"
