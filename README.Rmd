@@ -39,7 +39,7 @@ You will need to register for an API key. By default, all functions assume you h
 
 ```{r example}
 library(rgridstatus)
-info <- get_datasets()
+info <- get_available_datasets()
 head(info)
 ```
 
@@ -58,7 +58,7 @@ head(updates)
 
 df <- fetch_dataset("caiso_fuel_mix")
 
-head(df)
+str(df)
 
 ```
 
