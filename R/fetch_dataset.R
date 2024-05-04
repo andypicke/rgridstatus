@@ -6,27 +6,20 @@
 #' @param tz_local Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()
 #' @returns df: Dataframe of requested dataset
 #' @export
+#' @examples
+#' dat <- fetch_dataset()
+#'
 
 fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
                           start_time = Sys.Date() - 5,
                           end_time = Sys.Date(),
                           api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
                           tz_local = "US/Pacific") {
-  # base url for the Gridstatusio API
-  # base_url <- "https://api.gridstatus.io/v1/"
 
   # construct full request url
   req_url <- construct_query_url(wh_dataset, start_time, end_time)
 
-  resp <- httr::GET(req_url, httr::add_headers("x-api-key" = api_key))
-
-  if (resp$status_code != 200) {
-    stop(paste("API returned not 200 status code: ", resp$status_code))
-  }
-
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
-
-  df <- resp_parsed$data
+  df <- get_api_request(req_url, api_key)
 
   # convert datetime column format
   df$interval_start_utc <- lubridate::as_datetime(df$interval_start_utc)

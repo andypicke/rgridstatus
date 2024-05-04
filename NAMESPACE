@@ -2,5 +2,6 @@
 
 export(construct_query_url)
 export(fetch_dataset)
+export(get_api_request)
 export(get_available_datasets)
 export(get_dataset_updates)

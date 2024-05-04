@@ -10,7 +10,7 @@ get_available_datasets(api_key = Sys.getenv("GRIDSTATUS_API_KEY"))
 \item{api_key}{API key; defaults to key saved in renviron file}
 }
 \value{
-Dataframe of available datasets and info
+df: Dataframe of available datasets and info
 }
 \description{
 Get info on all available Gridstatus datasets
