@@ -6,9 +6,6 @@
 #' @param tz_local Local timezone to display times in column "datetime_local" (default "US/Pacific"). See available timezones with OlsonNames()
 #' @returns df: Dataframe of requested dataset
 #' @export
-#' @examples
-#' dat <- fetch_dataset()
-#'
 
 fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
                           start_time = Sys.Date() - 5,

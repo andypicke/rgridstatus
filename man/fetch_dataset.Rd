@@ -29,7 +29,3 @@ df: Dataframe of requested dataset
 \description{
 Download dataset from API
 }
-\examples{
-dat <- fetch_dataset()
-
-}
