@@ -13,7 +13,8 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    lubridate
+    lubridate,
+    tidyr
 URL: https://github.com/andypicke/rgridstatus
 BugReports: https://github.com/andypicke/rgridstatus/issues
 Suggests: 
