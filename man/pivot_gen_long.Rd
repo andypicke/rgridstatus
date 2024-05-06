@@ -7,7 +7,7 @@
 pivot_gen_long(df)
 }
 \arguments{
-\item{df}{Dataframe of generation data in wide format (as returned by fetch_dataset())}
+\item{df}{Dataframe of generation data in wide format (as returned by get_gridstatus_dataset())}
 }
 \value{
 Dataframe pivoted to long format
@@ -16,5 +16,5 @@ Dataframe pivoted to long format
 Pivot generation (fuel-mix) data to long format
 }
 \seealso{
-\code{\link[=fetch_dataset]{fetch_dataset()}}
+\code{\link[=get_gridstatus_dataset]{get_gridstatus_dataset()}}
 }

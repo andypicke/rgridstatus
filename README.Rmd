@@ -56,7 +56,7 @@ head(updates)
 
 ```{r}
 
-df <- fetch_dataset("caiso_fuel_mix")
+df <- get_gridstatus_dataset("caiso_fuel_mix")
 
 str(df)
 

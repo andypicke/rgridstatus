@@ -1,7 +1,7 @@
 #' Pivot generation (fuel-mix) data to long format
-#' @param df Dataframe of generation data in wide format (as returned by fetch_dataset())
+#' @param df Dataframe of generation data in wide format (as returned by get_gridstatus_dataset())
 #' @returns Dataframe pivoted to long format
-#' @seealso [fetch_dataset()]
+#' @seealso [get_gridstatus_dataset()]
 #' @export
 
 pivot_gen_long <- function(df){

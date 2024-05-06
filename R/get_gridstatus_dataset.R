@@ -7,7 +7,7 @@
 #' @returns df: Dataframe of requested dataset
 #' @export
 
-fetch_dataset <- function(wh_dataset = "caiso_fuel_mix",
+get_gridstatus_dataset <- function(wh_dataset = "caiso_fuel_mix",
                           start_time = Sys.Date() - 5,
                           end_time = Sys.Date(),
                           api_key = Sys.getenv("GRIDSTATUS_API_KEY"),
