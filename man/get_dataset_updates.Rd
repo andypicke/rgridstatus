@@ -17,6 +17,9 @@ get_dataset_updates(
 
 \item{api_key}{API key. Default is "GRIDSTATUS_API_KEY" stored in .Renviron file}
 }
+\value{
+updates : Dataframe of dataset updates as reqeusted
+}
 \description{
 Get list of dataset updates that have occurred
 }

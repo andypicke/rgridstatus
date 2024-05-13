@@ -2,6 +2,7 @@
 #' @param wh_dataset Name of dataset to download (default is all)
 #' @param limit Max number of updates to fetch. default 100
 #' @param api_key API key. Default is "GRIDSTATUS_API_KEY" stored in .Renviron file
+#' @returns updates : Dataframe of dataset updates as reqeusted
 #' @export
 
 get_dataset_updates <- function(wh_dataset = "all", limit = 100, api_key = Sys.getenv("GRIDSTATUS_API_KEY")) {
@@ -14,10 +15,6 @@ get_dataset_updates <- function(wh_dataset = "all", limit = 100, api_key = Sys.g
     req_url <- paste0(base_url, "dataset-updates?limit=", limit)
   }
 
-  resp <- httr::GET(req_url, httr::add_headers("x-api-key" = api_key))
-
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
-
-  updates <- resp_parsed$data
+  updates <- get_api_request(query_url = req_url, api_key = api_key)
 
 }
