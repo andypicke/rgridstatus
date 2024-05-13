@@ -16,7 +16,7 @@ get_dataset_updates <- function(wh_dataset = "all", limit = 100, api_key = Sys.g
 
   resp <- httr::GET(req_url, httr::add_headers("x-api-key" = api_key))
 
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
+  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 
   updates <- resp_parsed$data
 

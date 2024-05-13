@@ -1,6 +1,6 @@
 #' Make API GET request and return data
 #' @param query_url URL for the API query
-#' @param api_key API key; defaults to key saved in renviron file
+#' @param api_key API key; Defaults is key saved in .renviron file as "GRIDSTATUS_API_KEY"
 #' @returns data from the API response
 #' @export
 
@@ -15,7 +15,7 @@ get_api_request <- function(query_url, api_key = Sys.getenv("GRIDSTATUS_API_KEY"
   }
 
   #parse response
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
+  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 
   # return the data
   df <- resp_parsed$data

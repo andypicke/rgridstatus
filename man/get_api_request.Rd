@@ -9,7 +9,7 @@ get_api_request(query_url, api_key = Sys.getenv("GRIDSTATUS_API_KEY"))
 \arguments{
 \item{query_url}{URL for the API query}
 
-\item{api_key}{API key; defaults to key saved in renviron file}
+\item{api_key}{API key; Defaults is key saved in .renviron file as "GRIDSTATUS_API_KEY"}
 }
 \value{
 data from the API response
