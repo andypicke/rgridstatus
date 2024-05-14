@@ -25,7 +25,7 @@ The goal of rgridstatus is to provide a R API wrapper for the [GridStatusIO](htt
 
 ## Installation
 
-You can install the development version of rgridstatus from [GitHub](https://github.com/) with:
+You can install the development version of [rgridstatus](https://github.com/andypicke/rgridstatus) from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -36,7 +36,7 @@ You will need to register for an API key. By default, all functions assume you h
 
 ## Examples
 
-### Get info on available datasets:
+### Get info on datasets available from GridStatus API:
 
 ```{r example}
 library(rgridstatus)
