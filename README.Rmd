@@ -23,6 +23,8 @@ knitr::opts_chunk$set(
 
 The goal of rgridstatus is to provide a R API wrapper for the [GridStatusIO](https://www.gridstatus.io/home) [API](https://www.gridstatus.io/api).
 
+See also my [blog post](https://andypicke.quarto.pub/portfolio/posts/rGridStatus/rGridStatus.html) describing some features of the package.
+
 ## Installation
 
 You can install the development version of [rgridstatus](https://github.com/andypicke/rgridstatus) from [GitHub](https://github.com/) with:

@@ -16,6 +16,10 @@ The goal of rgridstatus is to provide a R API wrapper for the
 [GridStatusIO](https://www.gridstatus.io/home)
 [API](https://www.gridstatus.io/api).
 
+See also my [blog
+post](https://andypicke.quarto.pub/portfolio/posts/rGridStatus/rGridStatus.html)
+describing some features of the package.
+
 ## Installation
 
 You can install the development version of
@@ -68,12 +72,12 @@ head(info)
 #> 5 2021-06-18T07:00:00+00:00 2024-05-13T07:00:00+00:00      caiso
 #> 6 2016-06-30T07:00:00+00:00 2024-05-13T01:00:00+00:00      caiso
 #>           last_checked_time
-#> 1 2024-05-14T15:21:02+00:00
-#> 2 2024-05-14T15:21:02+00:00
-#> 3 2024-05-14T15:21:27+00:00
-#> 4 2024-05-14T15:21:33+00:00
+#> 1 2024-05-14T15:25:55+00:00
+#> 2 2024-05-14T15:25:55+00:00
+#> 3 2024-05-14T15:27:59+00:00
+#> 4 2024-05-14T15:28:04+00:00
 #> 5 2024-05-13T15:30:07+00:00
-#> 6 2024-05-14T15:21:38+00:00
+#> 6 2024-05-14T15:28:09+00:00
 #>                                                   primary_key_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
