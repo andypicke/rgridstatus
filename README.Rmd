@@ -46,6 +46,17 @@ info <- get_available_datasets()
 head(info)
 ```
 
+### Get unique data source names
+
+```{r}
+
+# input is info from get_available_datasets()
+sources <- get_source_names(info)
+sources
+
+```
+
+
 ### Get list of dataset updates
 
 ```{r}
