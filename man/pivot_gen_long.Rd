@@ -10,7 +10,7 @@ pivot_gen_long(df)
 \item{df}{Dataframe of generation data in wide format (as returned by get_gridstatus_dataset())}
 }
 \value{
-Dataframe pivoted to long format
+Dataframe pivoted to long format with columns "fuel_type" and "generation"
 }
 \description{
 Pivot generation (fuel-mix) data to long format

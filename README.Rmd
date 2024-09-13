@@ -76,3 +76,13 @@ str(df)
 
 ```
 
+### Pivot fuel mix dataframe to long format for easier plotting
+
+```{r}
+
+df_long <- pivot_gen_long(df)
+
+head(df_long)
+
+```
+

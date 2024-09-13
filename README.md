@@ -53,8 +53,8 @@ head(info)
 #>                                               name
 #> 1                                      All Records
 #> 2                           All Records Timeseries
-#> 3                                  CAISO As Prices
-#> 4                         CAISO As Procurement Dam
+#> 3                                  CAISO AS Prices
+#> 4                         CAISO AS Procurement DAM
 #> 5 CAISO Curtailed Non Operational Generator Report
 #> 6                                CAISO Curtailment
 #>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       description
@@ -65,19 +65,19 @@ head(info)
 #> 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Prior Day Curtailed Non-Operational Generator Report as reported by CAISO.\n\nSource: https://www.caiso.com/market-operations/outages/curtailed-and-non-operational-generators\nGlossary: https://www.caiso.com/glossary
 #> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Daily Curtailment data as reported by CAISO.\n\nSource: https://www.caiso.com/about/our-business/managing-the-evolving-grid\n\nNote: CAISO did not publish curtailment reports for 2024-07-26 and 2024-07-27.
 #>     earliest_available_time     latest_available_time     source
-#> 1 2017-12-13T22:05:00+00:00 2024-08-12T02:20:00+00:00 gridstatus
-#> 2 2011-01-01T06:30:00+00:00 2024-08-03T17:20:00+00:00 gridstatus
-#> 3 2010-01-01T08:00:00+00:00 2024-08-17T06:00:00+00:00      caiso
-#> 4 2010-01-01T08:00:00+00:00 2024-08-16T20:00:00+00:00      caiso
-#> 5 2021-06-18T07:00:00+00:00 2024-08-15T07:00:00+00:00      caiso
-#> 6 2017-01-01T12:00:00+00:00 2024-08-15T03:00:00+00:00      caiso
+#> 1 2017-12-13T22:05:00+00:00 2024-09-07T19:10:00+00:00 gridstatus
+#> 2 2011-01-01T06:30:00+00:00 2024-09-07T19:10:00+00:00 gridstatus
+#> 3 2010-01-01T08:00:00+00:00 2024-09-14T06:00:00+00:00      caiso
+#> 4 2010-01-01T08:00:00+00:00 2024-09-14T06:00:00+00:00      caiso
+#> 5 2021-06-18T07:00:00+00:00 2024-09-13T07:00:00+00:00      caiso
+#> 6 2017-01-01T12:00:00+00:00 2024-09-12T02:00:00+00:00      caiso
 #>           last_checked_time
-#> 1 2024-08-15T20:47:08+00:00
-#> 2 2024-08-15T20:47:08+00:00
-#> 3 2024-08-15T19:52:37+00:00
-#> 4 2024-08-15T20:47:32+00:00
-#> 5 2024-08-15T15:34:57+00:00
-#> 6 2024-08-15T17:02:16+00:00
+#> 1 2024-09-13T15:41:34+00:00
+#> 2 2024-09-13T15:41:35+00:00
+#> 3 2024-09-13T15:42:23+00:00
+#> 4 2024-09-13T15:42:29+00:00
+#> 5 2024-09-13T15:36:16+00:00
+#> 6 2024-09-13T15:42:35+00:00
 #>                                                   primary_key_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
@@ -101,16 +101,16 @@ head(info)
 #> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  interval_start_utc, interval_end_utc, curtailment_type, curtailment_reason, fuel_type, curtailment_mwh, curtailment_mw, TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, INTEGER, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE
 #>   number_of_rows_approximate        table_type is_in_snowflake data_frequency
 #> 1                        560 materialized_view           FALSE      IRREGULAR
-#> 2                       1852 materialized_view           FALSE      IRREGULAR
+#> 2                       1871 materialized_view           FALSE      IRREGULAR
 #> 3                     621445             table            TRUE         1_HOUR
 #> 4                     623449             table            TRUE         1_HOUR
-#> 5                    2139417             table            TRUE      IRREGULAR
-#> 6                      64458             table            TRUE      5_MINUTES
+#> 5                    2200875             table            TRUE      IRREGULAR
+#> 6                      67748             table            TRUE      5_MINUTES
 #>   is_published                created_at                updated_at
 #> 1         TRUE                      <NA>                      <NA>
 #> 2         TRUE                      <NA>                      <NA>
-#> 3         TRUE 2023-04-20T07:00:37+00:00 2024-08-01T20:46:03+00:00
-#> 4         TRUE 2023-11-20T15:34:56+00:00 2024-07-23T11:08:40+00:00
+#> 3         TRUE 2023-04-20T07:00:37+00:00 2024-08-21T18:50:24+00:00
+#> 4         TRUE 2023-11-20T15:34:56+00:00 2024-08-21T18:50:57+00:00
 #> 5         TRUE 2023-10-04T00:04:17+00:00 2024-07-23T11:08:40+00:00
 #> 6         TRUE 2023-04-20T16:35:38+00:00 2024-08-05T17:05:58+00:00
 #>                                                                                 source_url
@@ -120,6 +120,13 @@ head(info)
 #> 4                                                 http://oasis.caiso.com/mrioasis/logon.do
 #> 5 https://www.caiso.com/market-operations/outages/curtailed-and-non-operational-generators
 #> 6                      https://www.caiso.com/about/our-business/managing-the-evolving-grid
+#>   publication_frequency
+#> 1                    NA
+#> 2                    NA
+#> 3                    NA
+#> 4                    NA
+#> 5                    NA
+#> 6                    NA
 ```
 
 ### Get unique data source names
@@ -156,19 +163,37 @@ df <- get_gridstatus_dataset("caiso_fuel_mix")
 
 str(df)
 #> 'data.frame':    1440 obs. of  15 variables:
-#>  $ interval_start_utc: POSIXct, format: "2024-08-10 00:00:00" "2024-08-10 00:05:00" ...
-#>  $ solar             : int  15734 15519 15341 15183 14931 14655 14392 14083 13748 13267 ...
-#>  $ wind              : int  3855 3865 3880 3859 3847 3796 3810 3817 3817 3828 ...
-#>  $ geothermal        : int  776 776 775 776 775 776 775 775 775 775 ...
-#>  $ biomass           : int  295 295 295 294 294 294 295 295 296 296 ...
-#>  $ biogas            : int  161 163 163 164 164 164 164 165 166 164 ...
-#>  $ small_hydro       : int  303 304 304 302 301 301 302 302 303 304 ...
-#>  $ coal              : int  0 0 -1 -2 -1 -1 -1 -2 -1 -2 ...
-#>  $ nuclear           : int  2257 2257 2257 2258 2256 2257 2257 2257 2257 2257 ...
-#>  $ natural_gas       : int  11595 11871 11882 11899 11966 12131 12363 12811 13152 13511 ...
-#>  $ large_hydro       : int  3602 3645 3696 3702 3760 3807 3840 3831 3823 3832 ...
-#>  $ batteries         : int  195 -249 -153 -77 40 103 186 221 283 416 ...
-#>  $ imports           : int  110 416 538 685 729 745 807 726 796 853 ...
+#>  $ interval_start_utc: POSIXct, format: "2024-09-08 00:00:00" "2024-09-08 00:05:00" ...
+#>  $ solar             : int  9125 9160 8984 8863 8657 8357 7975 7506 7024 6622 ...
+#>  $ wind              : int  2375 2362 2362 2376 2388 2435 2453 2466 2462 2485 ...
+#>  $ geothermal        : int  797 796 796 796 797 797 797 797 797 797 ...
+#>  $ biomass           : int  337 335 336 335 337 333 335 334 334 333 ...
+#>  $ biogas            : int  167 168 168 168 168 167 168 168 167 168 ...
+#>  $ small_hydro       : int  258 255 253 254 254 254 255 255 255 255 ...
+#>  $ coal              : int  0 0 0 0 0 0 0 0 0 0 ...
+#>  $ nuclear           : int  2244 2243 2245 2244 2244 2243 2244 2244 2245 2243 ...
+#>  $ natural_gas       : int  18022 17911 17326 17392 17543 17628 17874 18346 18827 19177 ...
+#>  $ large_hydro       : int  3635 3891 3966 4020 4076 4171 4234 4231 4236 4235 ...
+#>  $ batteries         : int  3227 2967 3055 3088 3148 3250 3487 3663 3790 3992 ...
+#>  $ imports           : int  1478 1589 1904 2036 2026 2044 1858 1845 1873 1790 ...
 #>  $ other             : int  0 0 0 0 0 0 0 0 0 0 ...
-#>  $ datetime_local    : POSIXct, format: "2024-08-09 17:00:00" "2024-08-09 17:05:00" ...
+#>  $ datetime_local    : POSIXct, format: "2024-09-07 17:00:00" "2024-09-07 17:05:00" ...
+```
+
+### Pivot fuel mix dataframe to long format for easier plotting
+
+``` r
+
+df_long <- pivot_gen_long(df)
+
+head(df_long)
+#> # A tibble: 6 × 4
+#>   interval_start_utc  datetime_local      fuel_type   generation
+#>   <dttm>              <dttm>              <chr>            <int>
+#> 1 2024-09-08 00:00:00 2024-09-07 17:00:00 solar             9125
+#> 2 2024-09-08 00:00:00 2024-09-07 17:00:00 wind              2375
+#> 3 2024-09-08 00:00:00 2024-09-07 17:00:00 geothermal         797
+#> 4 2024-09-08 00:00:00 2024-09-07 17:00:00 biomass            337
+#> 5 2024-09-08 00:00:00 2024-09-07 17:00:00 biogas             167
+#> 6 2024-09-08 00:00:00 2024-09-07 17:00:00 small_hydro        258
 ```
