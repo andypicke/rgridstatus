@@ -57,6 +57,15 @@ sources
 ```
 
 
+### Get dataset names for one operator/source
+```{r}
+
+info_caiso <- get_available_datasets() |> dplyr::filter(stringr::str_detect(name,"CAISO"))
+
+```
+
+
+
 ### Get list of dataset updates
 
 ```{r}

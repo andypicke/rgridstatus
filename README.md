@@ -72,12 +72,12 @@ head(info)
 #> 5 2021-06-18T07:00:00+00:00 2024-09-13T07:00:00+00:00      caiso
 #> 6 2017-01-01T12:00:00+00:00 2024-09-12T02:00:00+00:00      caiso
 #>           last_checked_time
-#> 1 2024-09-13T15:41:34+00:00
-#> 2 2024-09-13T15:41:35+00:00
-#> 3 2024-09-13T15:42:23+00:00
-#> 4 2024-09-13T15:42:29+00:00
+#> 1 2024-09-13T15:46:30+00:00
+#> 2 2024-09-13T15:46:30+00:00
+#> 3 2024-09-13T15:46:59+00:00
+#> 4 2024-09-13T15:47:04+00:00
 #> 5 2024-09-13T15:36:16+00:00
-#> 6 2024-09-13T15:42:35+00:00
+#> 6 2024-09-13T15:47:08+00:00
 #>                                                   primary_key_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
@@ -138,6 +138,13 @@ sources <- get_source_names(info)
 sources
 #>  [1] "all"     "caiso"   "dataset" "eia"     "ercot"   "ieso"    "isone"  
 #>  [8] "isos"    "miso"    "nyiso"   "pjm"     "spp"
+```
+
+### Get dataset names for one operator/source
+
+``` r
+
+info_caiso <- get_available_datasets() |> dplyr::filter(stringr::str_detect(name,"CAISO"))
 ```
 
 ### Get list of dataset updates
