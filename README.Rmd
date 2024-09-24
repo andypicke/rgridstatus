@@ -16,9 +16,9 @@ knitr::opts_chunk$set(
 # rgridstatus
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+[![R-CMD-check](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/rgridstatus/actions/workflows/R-CMD-check.yaml) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
 <!-- badges: end -->
 
 The goal of rgridstatus is to provide a R API wrapper for the [GridStatusIO](https://www.gridstatus.io/home) [API](https://www.gridstatus.io/api).
@@ -41,12 +41,17 @@ You will need to register for an API key. By default, all functions assume you h
 ### Get info on datasets available from GridStatus API:
 
 ```{r example}
+
 library(rgridstatus)
+library(tidyverse)
+
 info <- get_available_datasets()
 head(info)
 ```
 
 ### Get unique data source names
+
+Most of the "sources" are [ISOs](https://en.wikipedia.org/wiki/Regional_transmission_organization_(North_America)).
 
 ```{r}
 
@@ -56,17 +61,18 @@ sources
 
 ```
 
-
 ### Get dataset names for one operator/source
+
+The dataset names all start with the ISO/source, so it is easy to filter by those:
+
 ```{r}
 
-info_caiso <- get_available_datasets() |> dplyr::filter(stringr::str_detect(name,"CAISO"))
+info_caiso <- get_available_datasets() |> 
+  dplyr::filter(stringr::str_detect(name,"^CAISO_")) # name starts with "CAISO_"
 
 ```
 
-
-
-### Get list of dataset updates
+### Get a list of dataset updates
 
 ```{r}
 
@@ -75,23 +81,48 @@ head(updates)
 
 ```
 
+Again, you can filter the results to get updates for a specific ISO/source:
+```{r}
+
+updates_caiso <- updates |> dplyr::filter(stringr::str_detect(dataset, "^caiso_"))
+updates_caiso
+```
+
+
 ### Download a dataset
 
 ```{r}
 
-df <- get_gridstatus_dataset("caiso_fuel_mix")
+df <- get_gridstatus_dataset(wh_dataset = "caiso_fuel_mix", 
+                             start_time = "2024-09-03", 
+                             end_time = "2024-09-05")
 
 str(df)
 
 ```
 
+
 ### Pivot fuel mix dataframe to long format for easier plotting
+
+{rgridstatus} contains a convenience function *pivot_gen_long()* to pivot the fuel mix dataframe to a long format. This can make it easier to plot multiple timeseries.
 
 ```{r}
 
 df_long <- pivot_gen_long(df)
 
 head(df_long)
+
+```
+
+With the data in a long format, we can just specify that the color or linetype should correspond to the *fuel_type*.
+
+```{r}
+
+
+df_long |>
+  ggplot(aes(datetime_local, generation)) +
+  geom_line(aes(color = fuel_type)) 
+
 
 ```
 

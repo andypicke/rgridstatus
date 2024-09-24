@@ -10,6 +10,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
 <!-- badges: end -->
 
 The goal of rgridstatus is to provide a R API wrapper for the
@@ -40,7 +41,20 @@ name *GRIDSTATUS_API_KEY*.
 ### Get info on datasets available from GridStatus API:
 
 ``` r
+
 library(rgridstatus)
+library(tidyverse)
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.1
+#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.2     
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
 info <- get_available_datasets()
 head(info)
 #>                                                 id
@@ -62,22 +76,22 @@ head(info)
 #> 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Timeline of new records for various metrics in all ISOs
 #> 3 Ancillary Services Prices as reported by CAISO.\n\n**AS Mapping**\n\nThe *_EXP show only the intertie resources.\n \n-    AS_SP26_P: Resources in AS_SP26\n-    AS_NP26_P: Resources in AS_NP26\n-    AS_SP15_P: Resources in AS_SP15\n-    AS_NP15_P: Resources in AS_NP15\n-    AS_SP26_EXP_P: Resources in AS_SP26_EXP which are not in AS_SP26\n-    AS_NP26_EXP_P: Resources in AS_NP26_EXP which are not in AS_NP26\n-    AS_SP15_EXP_P: Resources in AS_SP15_EXP which are not in AS_SP15\n-    AS_NP15_EXP_P: Resources in AS_NP15_EXP which are not in AS_NP15\n-    AS_CAISO_NP26_P: Resources in AS_CAISO which are not in AS_SP26\n-    AS_CAISO_SP26_P: Resources in AS_CAISO which are not in AS_NP26\n-    AS_CAISO_NP15_P: Resources in AS_CAISO which are not in AS_SP15\n-    AS_CAISO_SP15_P: Resources in AS_CAISO which are not in AS_NP15
 #> 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Ancillary services procurement data from CAISO.\nIncludes total MW procured and costs.  Corresponds\nto CAISO AS_RESULTS dataset on OASIS. See caiso_as_prices dataset\nfor per MW prices that result from market run.
-#> 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Prior Day Curtailed Non-Operational Generator Report as reported by CAISO.\n\nSource: https://www.caiso.com/market-operations/outages/curtailed-and-non-operational-generators\nGlossary: https://www.caiso.com/glossary
-#> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Daily Curtailment data as reported by CAISO.\n\nSource: https://www.caiso.com/about/our-business/managing-the-evolving-grid\n\nNote: CAISO did not publish curtailment reports for 2024-07-26 and 2024-07-27.
+#> 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Prior Day Curtailed Non-Operational Generator Report as reported by CAISO.\n\nGlossary: https://www.caiso.com/glossary
+#> 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Daily Curtailment data as reported by CAISO.\n\nNote: CAISO did not publish curtailment reports for 2024-07-26 and 2024-07-27.
 #>     earliest_available_time     latest_available_time     source
-#> 1 2017-12-13T22:05:00+00:00 2024-09-07T19:10:00+00:00 gridstatus
-#> 2 2011-01-01T06:30:00+00:00 2024-09-07T19:10:00+00:00 gridstatus
-#> 3 2010-01-01T08:00:00+00:00 2024-09-14T06:00:00+00:00      caiso
-#> 4 2010-01-01T08:00:00+00:00 2024-09-14T06:00:00+00:00      caiso
-#> 5 2021-06-18T07:00:00+00:00 2024-09-13T07:00:00+00:00      caiso
-#> 6 2017-01-01T12:00:00+00:00 2024-09-12T02:00:00+00:00      caiso
+#> 1 2017-12-13T22:05:00+00:00 2024-09-17T00:15:00+00:00 gridstatus
+#> 2 2011-01-01T06:30:00+00:00 2024-09-11T23:10:00+00:00 gridstatus
+#> 3 2010-01-01T08:00:00+00:00 2024-09-25T06:00:00+00:00      caiso
+#> 4 2010-01-01T08:00:00+00:00 2024-09-25T06:00:00+00:00      caiso
+#> 5 2021-06-18T07:00:00+00:00 2024-09-24T07:00:00+00:00      caiso
+#> 6 2017-01-01T12:00:00+00:00 2024-09-23T00:00:00+00:00      caiso
 #>           last_checked_time
-#> 1 2024-09-13T15:46:30+00:00
-#> 2 2024-09-13T15:46:30+00:00
-#> 3 2024-09-13T15:46:59+00:00
-#> 4 2024-09-13T15:47:04+00:00
-#> 5 2024-09-13T15:36:16+00:00
-#> 6 2024-09-13T15:47:08+00:00
+#> 1 2024-09-24T16:51:59+00:00
+#> 2 2024-09-24T16:51:59+00:00
+#> 3 2024-09-24T16:54:44+00:00
+#> 4 2024-09-24T16:54:50+00:00
+#> 5 2024-09-24T15:36:34+00:00
+#> 6 2024-09-24T16:54:53+00:00
 #>                                                   primary_key_columns
 #> 1                                 iso, rank, record_type, metric_name
 #> 2                   iso, interval_start_utc, record_type, metric_name
@@ -111,8 +125,8 @@ head(info)
 #> 2         TRUE                      <NA>                      <NA>
 #> 3         TRUE 2023-04-20T07:00:37+00:00 2024-08-21T18:50:24+00:00
 #> 4         TRUE 2023-11-20T15:34:56+00:00 2024-08-21T18:50:57+00:00
-#> 5         TRUE 2023-10-04T00:04:17+00:00 2024-07-23T11:08:40+00:00
-#> 6         TRUE 2023-04-20T16:35:38+00:00 2024-08-05T17:05:58+00:00
+#> 5         TRUE 2023-10-04T00:04:17+00:00 2024-09-17T01:15:18+00:00
+#> 6         TRUE 2023-04-20T16:35:38+00:00 2024-09-17T01:15:27+00:00
 #>                                                                                 source_url
 #> 1                                                                                     <NA>
 #> 2                                                                                     <NA>
@@ -121,15 +135,18 @@ head(info)
 #> 5 https://www.caiso.com/market-operations/outages/curtailed-and-non-operational-generators
 #> 6                      https://www.caiso.com/about/our-business/managing-the-evolving-grid
 #>   publication_frequency
-#> 1                    NA
-#> 2                    NA
-#> 3                    NA
-#> 4                    NA
-#> 5                    NA
-#> 6                    NA
+#> 1                  <NA>
+#> 2                  <NA>
+#> 3                  <NA>
+#> 4                  <NA>
+#> 5                  <NA>
+#> 6                  <NA>
 ```
 
 ### Get unique data source names
+
+Most of the “sources” are
+[ISOs](https://en.wikipedia.org/wiki/Regional_transmission_organization_(North_America)).
 
 ``` r
 
@@ -142,12 +159,16 @@ sources
 
 ### Get dataset names for one operator/source
 
+The dataset names all start with the ISO/source, so it is easy to filter
+by those:
+
 ``` r
 
-info_caiso <- get_available_datasets() |> dplyr::filter(stringr::str_detect(name,"CAISO"))
+info_caiso <- get_available_datasets() |> 
+  dplyr::filter(stringr::str_detect(name,"^CAISO_")) # name starts with "CAISO_"
 ```
 
-### Get list of dataset updates
+### Get a list of dataset updates
 
 ``` r
 
@@ -162,32 +183,65 @@ head(updates)
 #> 6  6               caiso_load 2023-04-19T22:11:56+00:00                1
 ```
 
+Again, you can filter the results to get updates for a specific
+ISO/source:
+
+``` r
+
+updates_caiso <- updates |> dplyr::filter(stringr::str_detect(dataset, "^caiso_"))
+updates_caiso
+#>    id                    dataset                  time_utc num_rows_updated
+#> 1   5             caiso_fuel_mix 2023-04-19T22:11:55+00:00                4
+#> 2   6                 caiso_load 2023-04-19T22:11:56+00:00                1
+#> 3   7  caiso_lmp_real_time_5_min 2023-04-19T22:12:21+00:00               12
+#> 4   8              caiso_storage 2023-04-19T22:12:28+00:00                1
+#> 5  30             caiso_fuel_mix 2023-04-19T22:17:27+00:00                3
+#> 6  31                 caiso_load 2023-04-19T22:17:27+00:00                1
+#> 7  32  caiso_lmp_real_time_5_min 2023-04-19T22:17:51+00:00               12
+#> 8  33              caiso_storage 2023-04-19T22:17:57+00:00                1
+#> 9  41 caiso_lmp_real_time_15_min 2023-04-19T22:20:18+00:00               12
+#> 10 57             caiso_fuel_mix 2023-04-19T22:22:36+00:00                7
+#> 11 58                 caiso_load 2023-04-19T22:22:37+00:00                1
+#> 12 59  caiso_lmp_real_time_5_min 2023-04-19T22:23:01+00:00               12
+#> 13 60              caiso_storage 2023-04-19T22:23:07+00:00                1
+#> 14 76             caiso_fuel_mix 2023-04-19T22:27:34+00:00                6
+#> 15 77                 caiso_load 2023-04-19T22:27:34+00:00                1
+#> 16 81  caiso_lmp_real_time_5_min 2023-04-19T22:27:58+00:00               12
+#> 17 82              caiso_storage 2023-04-19T22:28:04+00:00                1
+```
+
 ### Download a dataset
 
 ``` r
 
-df <- get_gridstatus_dataset("caiso_fuel_mix")
+df <- get_gridstatus_dataset(wh_dataset = "caiso_fuel_mix", 
+                             start_time = "2024-09-03", 
+                             end_time = "2024-09-05")
 
 str(df)
-#> 'data.frame':    1440 obs. of  15 variables:
-#>  $ interval_start_utc: POSIXct, format: "2024-09-08 00:00:00" "2024-09-08 00:05:00" ...
-#>  $ solar             : int  9125 9160 8984 8863 8657 8357 7975 7506 7024 6622 ...
-#>  $ wind              : int  2375 2362 2362 2376 2388 2435 2453 2466 2462 2485 ...
-#>  $ geothermal        : int  797 796 796 796 797 797 797 797 797 797 ...
-#>  $ biomass           : int  337 335 336 335 337 333 335 334 334 333 ...
-#>  $ biogas            : int  167 168 168 168 168 167 168 168 167 168 ...
-#>  $ small_hydro       : int  258 255 253 254 254 254 255 255 255 255 ...
+#> 'data.frame':    575 obs. of  15 variables:
+#>  $ interval_start_utc: POSIXct, format: "2024-09-03 00:00:00" "2024-09-03 00:05:00" ...
+#>  $ solar             : int  14210 13948 13542 13020 12638 12029 11346 10671 10154 9555 ...
+#>  $ wind              : int  1837 1828 1789 1799 1795 1792 1825 1821 1872 1874 ...
+#>  $ geothermal        : int  727 727 729 728 729 729 729 727 728 729 ...
+#>  $ biomass           : int  346 347 347 347 348 348 349 347 347 348 ...
+#>  $ biogas            : int  157 157 157 156 155 155 156 156 157 156 ...
+#>  $ small_hydro       : int  261 259 259 261 259 259 260 260 258 258 ...
 #>  $ coal              : int  0 0 0 0 0 0 0 0 0 0 ...
-#>  $ nuclear           : int  2244 2243 2245 2244 2244 2243 2244 2244 2245 2243 ...
-#>  $ natural_gas       : int  18022 17911 17326 17392 17543 17628 17874 18346 18827 19177 ...
-#>  $ large_hydro       : int  3635 3891 3966 4020 4076 4171 4234 4231 4236 4235 ...
-#>  $ batteries         : int  3227 2967 3055 3088 3148 3250 3487 3663 3790 3992 ...
-#>  $ imports           : int  1478 1589 1904 2036 2026 2044 1858 1845 1873 1790 ...
+#>  $ nuclear           : int  2241 2242 2243 2243 2241 2243 2242 2243 2243 2244 ...
+#>  $ natural_gas       : int  10173 10440 10408 10707 11173 11582 11906 12065 12162 12262 ...
+#>  $ large_hydro       : int  3030 3464 3644 3681 3701 3740 3774 3780 3811 3822 ...
+#>  $ batteries         : int  239 -92 -8 228 295 444 861 1626 2016 2437 ...
+#>  $ imports           : int  2040 1913 2130 2199 2180 2315 2448 2312 2342 2550 ...
 #>  $ other             : int  0 0 0 0 0 0 0 0 0 0 ...
-#>  $ datetime_local    : POSIXct, format: "2024-09-07 17:00:00" "2024-09-07 17:05:00" ...
+#>  $ datetime_local    : POSIXct, format: "2024-09-02 17:00:00" "2024-09-02 17:05:00" ...
 ```
 
 ### Pivot fuel mix dataframe to long format for easier plotting
+
+{rgridstatus} contains a convenience function *pivot_gen_long()* to
+pivot the fuel mix dataframe to a long format. This can make it easier
+to plot multiple timeseries.
 
 ``` r
 
@@ -197,10 +251,23 @@ head(df_long)
 #> # A tibble: 6 × 4
 #>   interval_start_utc  datetime_local      fuel_type   generation
 #>   <dttm>              <dttm>              <chr>            <int>
-#> 1 2024-09-08 00:00:00 2024-09-07 17:00:00 solar             9125
-#> 2 2024-09-08 00:00:00 2024-09-07 17:00:00 wind              2375
-#> 3 2024-09-08 00:00:00 2024-09-07 17:00:00 geothermal         797
-#> 4 2024-09-08 00:00:00 2024-09-07 17:00:00 biomass            337
-#> 5 2024-09-08 00:00:00 2024-09-07 17:00:00 biogas             167
-#> 6 2024-09-08 00:00:00 2024-09-07 17:00:00 small_hydro        258
+#> 1 2024-09-03 00:00:00 2024-09-02 17:00:00 solar            14210
+#> 2 2024-09-03 00:00:00 2024-09-02 17:00:00 wind              1837
+#> 3 2024-09-03 00:00:00 2024-09-02 17:00:00 geothermal         727
+#> 4 2024-09-03 00:00:00 2024-09-02 17:00:00 biomass            346
+#> 5 2024-09-03 00:00:00 2024-09-02 17:00:00 biogas             157
+#> 6 2024-09-03 00:00:00 2024-09-02 17:00:00 small_hydro        261
 ```
+
+With the data in a long format, we can just specify that the color or
+linetype should correspond to the *fuel_type*.
+
+``` r
+
+
+df_long |>
+  ggplot(aes(datetime_local, generation)) +
+  geom_line(aes(color = fuel_type)) 
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
